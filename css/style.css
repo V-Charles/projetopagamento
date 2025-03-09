@@ -1,0 +1,74 @@
+/* Limpando formatações padrões */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 1em;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    background: #e6e6e6;
+}
+
+/* Layout */
+.cabecalho {
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px;
+}
+
+.destaque {
+    color: green;
+}
+
+.conteudo {
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    max-width: 20%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #feba31;
+    gap: 10px;
+    flex-direction: column;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.conteudo label {
+    font-weight: bold;
+}
+
+.conteudo input {
+    width: 60%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.opcoes-radios {
+    display: flex;
+    align-items: center;
+}
+
+.opcoes-radios input {
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+.botao-dados {
+    background-color: aqua;
+    color: black;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.botao-dados:hover {
+    background-color: aquamarine;
+}

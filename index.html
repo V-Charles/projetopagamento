@@ -3,9 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Projeto - Pagamento</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
+
+    <!-- Início principal -->
+    <main>
+
+        <!-- Início cabeçalho -->
+        <header class="cabecalho">
+            <section>
+                <h1>Escolha a forma de <span class="destaque">pagamento</span></h1>
+            </section>
+        </header>
+        <!-- Fim cabeçalho -->
+
+        <!-- Conteudo princípal -->
+        <section class="conteudo">
+
+            <!-- Campo valor -->
+            <div>
+                <label for="valor">Valor: R$</label>
+                <input type="number" id="valor" placeholder="Digite o valor">
+            </div>
+            <!-- Fim campo valor -->
+
+            <!-- Forma de pagamento -->
+            <div class="opcoes-radios">
+                <input type="radio" name="pagamento" id="pix" value="pix" checked>
+                <label for="pix">Pix</label>
+
+                <input type="radio" name="pagamento" id="cartao" value="cartao">
+                <label for="cartao">Cartão de Crédito</label>
+            </div>
+            <!-- Fim forma de pagamento -->
+
+            <!-- Botão para informar dados -->
+            <button class="botao-dados" id="btnInformar">Informar dados</button>
+            <!-- Fim botão para informar dados -->
+
+            <!-- Painel para PIX -->
+            <div class="painel-pix">
+                <h2>PIX</h2>
+                <label for="cpf">CPF:</label>
+                <input type="number" id="cpf" placeholder="Informe a chave CPF">
+                <p>Total: R$ <span id="totalPix"></span></p>
+                <br>
+                <p>Houve um desconto de 10%</p>
+            </div>
+            <!-- Fim painel para PIX -->
+
+        </section>
+        <!-- Fim conteudo princípal -->
+        
+
+    </main>
+    <!-- Fim principal -->
+
 </body>
 </html>
