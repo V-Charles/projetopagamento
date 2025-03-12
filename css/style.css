@@ -39,7 +39,7 @@ body {
     font-weight: bold;
 }
 
-.conteudo input {
+.conteudo input, select {
     width: 60%;
     padding: 8px;
     margin-top: 5px;
@@ -48,17 +48,8 @@ body {
     border: 1px solid #ccc;
 }
 
-.opcoes-radios {
-    display: flex;
-    align-items: center;
-}
 
-.opcoes-radios input {
-    transform: scale(1.5);
-    cursor: pointer;
-}
-
-.botao-dados {
+.conteudo button {
     background-color: aqua;
     color: black;
     padding: 10px 15px;
@@ -67,8 +58,19 @@ body {
     cursor: pointer;
     font-size: 16px;
     margin-top: 10px;
+    width: 40%;
 }
 
-.botao-dados:hover {
+.conteudo button:hover {
     background-color: aquamarine;
+}
+
+.opcoes-radios {
+    display: flex;
+    align-items: flex-start;
+}
+
+.opcoes-radios input {
+    transform: scale(1.5);
+    cursor: pointer;
 }
