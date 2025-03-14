@@ -10,6 +10,14 @@ body {
     background: #e6e6e6;
 }
 
+.hidden {
+    display: none;
+}
+
+.error {
+    color: red;
+}
+
 /* Layout */
 .cabecalho {
     text-align: center;

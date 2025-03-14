@@ -1,13 +1,13 @@
 const valorInput = document.getElementById('valor');
 const btnInformar = document.getElementById('btnInformar');
-const painelPix = documento.getElementById('painelPix');
+const painelPix = document.getElementById('painelPix');
 const painelCartao = document.getElementById('painelCartao');
 const totalPix = document.getElementById('totalPix');
 const totalCartao = document.getElementById('totalCartao');
 const btnPagar = document.getElementById('btnPagar');
 const mensagemSucesso = document.getElementById('mensagemSucesso');
 const numeroCartaoInput = document.getElementById('numeroCartao');
-const iconeCartao = documento.getElementById('iconeCartao');
+const iconeCartao = document.getElementById('iconeCartao');
 const erroCartao = document.getElementById('erroCartao');
 const parcelaSelect = document.getElementById('parcelas');
 
@@ -20,7 +20,7 @@ function limpaPainel(){
 }
 
 btnInformar.addEventListener('click', function() {
-    limparPainel();
+    limpaPainel();
     erroCartao.textContent = '';
     iconeCartao.textContent = '';
 
@@ -31,14 +31,52 @@ btnInformar.addEventListener('click', function() {
 
     valorInicial = parseFloat(valorInput.value);
 
-    const pagamentoselecionado = document.querySelector('input[name="pagamento"]:checked').value;
+    const pagamentoSelecionado = document.querySelector('input[name="pagamento"]:checked').value;
 
-    if (pagementoSelecionado == 'pix') {
+    if (pagementoSelecionado === 'pix') {
         const total = (valorInicial * 0.9).toFixed(2);
         totalPix.textContent = total;
         painelPix.classList.remove('hidden');
-    } else if (pagamentoselecionado == 'cartao') {
+    } else if (pagamentoSelecionado === 'cartao') {
         painelCartao.classList.remove('hidden');
         calcularTotalCartao();
     }
+})
+
+numeroCartaoInput.addEventListener('input', function() {
+    const num = numeroCartaoInput.value;
+    iconeCartao.textContent = '';
+    erroCartao.textContent = '';
+
+    if(num.startsWith('1234')) {
+        iconeCartao.textContent = '💳';
+    } else if(num.startsWith('4321')) {
+        iconeCartao.textContent = '💳';
+    } else if(num.length >= 4) {
+        erroCartao.textContent = 'Número de cartão inválido';
+    }
+});
+
+function calcularTotalCartao(){
+    const parcelas = parseInt(parcelasSelect.value);
+    if(!parcelas || isNaN(parcelas)) {
+        totalCartao.textContent = valorInicial.toFixed(2);
+        return;
+    }
+
+    let total = valorInicial;
+    if(parcelas === 4) {
+        total = valorInicial * 1.05;
+    } else if (parcelas === 5) {
+        total = valorInicial * 1.10;
+    }
+
+    totalCartao.textContent = total.toFixed(2);
+}
+
+parcelasSelect.addEventListener('change', calcularTotalCartao);
+
+btnPagar.addEventListener('click', function() {
+    limpaPainel();
+    mensagemSucesso.classList.remove('hidden');
 })
