@@ -33,7 +33,7 @@ btnInformar.addEventListener('click', function() {
 
     const pagamentoSelecionado = document.querySelector('input[name="pagamento"]:checked').value;
 
-    if (pagementoSelecionado === 'pix') {
+    if (pagamentoSelecionado === 'pix') {
         const total = (valorInicial * 0.9).toFixed(2);
         totalPix.textContent = total;
         painelPix.classList.remove('hidden');
@@ -49,16 +49,16 @@ numeroCartaoInput.addEventListener('input', function() {
     erroCartao.textContent = '';
 
     if(num.startsWith('1234')) {
-        iconeCartao.textContent = '💳';
+        iconeCartao.style.backgroundImage = "url('icons/icon_visa.png')";
     } else if(num.startsWith('4321')) {
-        iconeCartao.textContent = '💳';
+        iconeCartao.style.backgroundImage = "url('icons/icon_mastercard.png')";
     } else if(num.length >= 4) {
         erroCartao.textContent = 'Número de cartão inválido';
     }
 });
 
 function calcularTotalCartao(){
-    const parcelas = parseInt(parcelasSelect.value);
+    const parcelas = parseInt(parcelaSelect.value);
     if(!parcelas || isNaN(parcelas)) {
         totalCartao.textContent = valorInicial.toFixed(2);
         return;
@@ -74,7 +74,7 @@ function calcularTotalCartao(){
     totalCartao.textContent = total.toFixed(2);
 }
 
-parcelasSelect.addEventListener('change', calcularTotalCartao);
+parcelaSelect.addEventListener('change', calcularTotalCartao);
 
 btnPagar.addEventListener('click', function() {
     limpaPainel();
